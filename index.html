@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MPG — рекламный план</title>
+<style>
+:root{color-scheme:light;--paper:#f3f3ee;--ink:#202b25;--green:#254c3a;--muted:#506057;--line:#dce4dc;--wash:#f2f6f1}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 system-ui,sans-serif}
+main{max-width:1100px;margin:auto;padding:32px clamp(14px,3vw,34px) 56px}
+header,section{border-radius:18px;padding:clamp(18px,4vw,36px);margin-bottom:18px}
+header{background:var(--green);color:white}
+section{background:white;border:1px solid var(--line)}
+h1,h2,h3,p,dl,dd{margin:0}
+h1{font-size:clamp(28px,4vw,38px);line-height:1.08;letter-spacing:-.04em;margin-bottom:12px}
+header p{color:#e5eee6;font-size:15px}
+h2{font-size:clamp(22px,2.5vw,27px);letter-spacing:-.035em;line-height:1.15;margin-bottom:22px}
+h3{font-size:17px;line-height:1.3;margin:22px 0 10px}
+.cards,.totals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:14px}
+.card,.metric{padding:16px 20px;background:var(--wash);border:1px solid var(--line);border-radius:12px;margin-bottom:14px}
+.cards .card,.totals .metric{margin:0}
+.card h3,.materials h3{margin:0 0 8px}
+.amount,.metric strong{display:block;font-size:24px;line-height:1.13;font-weight:760;letter-spacing:-.035em;color:var(--green);font-variant-numeric:tabular-nums}
+.metric{color:var(--muted);font-size:14px}
+.metric strong{margin-bottom:5px}
+.table{overflow:auto;margin-top:10px;border-radius:8px}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font-size:13px;color:var(--muted);background:#e8efe7}
+.card table:not(:has(thead)) td:last-child,.budget td:nth-child(2){font-size:18px;font-weight:750;color:var(--green);white-space:nowrap}
+.card table:not(:has(thead)) td:last-child{text-align:right}
+.budget td:nth-child(2){white-space:normal;min-width:125px}
+.budget td:last-child,.brand td:nth-child(2){font-size:13px;font-weight:400;color:var(--muted)}
+tbody tr:last-child > *{border-bottom:0}
+th[scope="row"]{background:transparent;color:var(--ink);font-size:inherit;font-weight:600}
+.card h3+.table td{vertical-align:middle}
+ul{margin:0;padding-left:20px}
+li+li{margin-top:6px}
+.note-list{font-size:13px;color:var(--muted);margin:12px 0}
+.work{margin:10px 0 20px}
+.work>div{padding:13px 0;border-bottom:1px solid var(--line)}
+.work dt{font-size:16px;color:var(--green)}
+.work dd{font-size:15px;margin-top:3px}
+.materials{margin-top:22px;padding:16px 20px;border-left:4px solid #688b72;background:#edf3eb;border-radius:0 12px 12px 0}
+.materials ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px}
+.materials li{margin:0}
+.materials label{display:inline-flex;align-items:baseline}
+.materials input{flex:none}
+.materials input{accent-color:var(--green);margin-right:6px}
+.flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
+.flow>div{background:white;border:1px solid var(--line);border-radius:9px;padding:10px;font-size:13px;color:var(--muted)}
+.flow strong{display:block;font-size:20px;color:var(--green)}
+.cards .card:nth-child(2) td:last-child{white-space:normal}
+@media(max-width:680px){.cards,.totals,.materials ul{grid-template-columns:1fr}.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.budget table{min-width:480px}}
+@media print{body{background:white}main{padding:0}header,section{border:1px solid var(--line)}.card,.materials,tr{break-inside:avoid}h2,h3{break-after:avoid}}
+
+.card .table+.amount,.brand+.metric{margin-top:14px}
+.card .table+.amount::before{content:"Бюджет за три месяца";display:block;font-size:13px;font-weight:500;letter-spacing:normal;margin-bottom:4px;color:var(--muted)}
+.card table:not(:has(thead)) td:last-child,.flow strong{font-size:20px;font-weight:760;color:var(--green);line-height:1.2}
+.card table:not(:has(thead)) tr:has(td:first-child) td:last-child{white-space:normal}
+.card table:not(:has(thead)) tr.budget-row td:last-child{font-size:19px}
+.search-funnel{min-width:510px}
+.search-funnel .goal{font-size:20px;font-weight:760;color:var(--green);line-height:1.2}.search-funnel .unit-cost{font-size:15px;font-weight:700;color:var(--green);white-space:nowrap}.search-funnel th:not(:first-child),.search-funnel td:not(:first-child){text-align:right}
+.brand table{min-width:650px;font-variant-numeric:tabular-nums}
+.brand th,.brand td{padding:12px;vertical-align:middle}
+.brand th:nth-child(n+4),.brand td:nth-child(n+4){text-align:right}
+.brand td:nth-child(n+4){white-space:nowrap}
+.brand td:first-child{font-weight:650;white-space:nowrap}
+.brand .result strong{display:block;font-size:18px;font-weight:750;line-height:1.25;color:var(--green);white-space:nowrap}
+.brand .result small{display:block;margin-top:3px;font-size:13px;color:var(--muted)}
+.scenario-options{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.scenario-toggle{font:inherit;font-size:13px;font-weight:700;color:var(--green);background:#fff;border:1px solid var(--green);border-radius:10px;padding:5px 10px;cursor:pointer}
+.scenario-toggle[aria-pressed="true"]{color:white;background:var(--green)}
+@media(max-width:680px){
+  main{padding-top:16px}
+  header,section{padding:16px}
+  .card,.metric,.materials{padding:12px}
+  th,td{padding:8px}
+  .amount,.metric strong{font-size:22px}
+}
+</style>
+
+<main>
+<header>
+<h1>Рекламный план MPG</h1>
+<p><strong>1 декабря 2026 — 28 февраля 2027</strong> · 3 месяца</p>
+</header>
+<section>
+<h2>Цели и бюджет за три месяца</h2>
+
+<div class="cards"><div class="card"><h3>Перформанс</h3><div class="table"><table><tbody><tr><td>Первичные лиды</td><td>121</td></tr><tr><td>Квалифицированные лиды</td><td>124</td></tr><tr><td>Получено ТЗ на просчёт</td><td>51</td></tr><tr><td>Заключённые договоры</td><td>12</td></tr></tbody></table></div><div class="amount">630 000 ₽</div><p class="note-list">540 000 ₽ на размещения и 90 000 ₽ на подрядчика по Яндекс Поиску</p></div><div class="card"><h3>Бренд</h3><div class="table"><table><tbody><tr><td>Telegram Ads · декабрь</td><td>≈453 000 показов</td></tr><tr><td>VK Реклама · <span data-max="в месяц, декабрь — февраль">в месяц, январь и февраль</span></td><td>≈816 000 показов</td></tr><tr><td>РСЯ · <span data-max="в месяц, декабрь — февраль">в месяц, январь и февраль</span></td><td>≈6 700–8 900</td></tr></tbody></table></div><div class="amount"><span data-max="630 000 ₽">440 000 ₽</span></div></div></div><div class="totals"><div class="metric"><strong><span data-max="1 170 000 ₽">980 000 ₽</span></strong>общий бюджет размещений</div><div class="metric"><strong><span data-max="До 1 264 540 ₽">До 1 074 540 ₽</span></strong>размещения, подрядчик и резерв на сервисы рассылок</div></div>
+<div class="table">
+<table>
+<thead><tr><th scope="col">Направление</th><th scope="col">Бюджет за три месяца</th><th scope="col">Плановый результат</th></tr></thead>
+<tbody>
+<tr><th scope="row">Рассылки</th><td>До 4 540 ₽</td><td>53 квалифицированных лида · 4 договора</td></tr>
+<tr><th scope="row">Яндекс Поиск</th><td>630 000 ₽</td><td>64 квалифицированных лида · 8 договоров</td></tr>
+<tr><th scope="row">Брендовая реклама</th><td><span data-max="630 000 ₽">440 000 ₽</span></td><td><span data-max="≈5,26 млн">≈3,66 млн</span> показов</td></tr>
+<tr><th scope="row">SEO, GEO и Яндекс Карты</th><td>0 ₽</td><td>180 переходов из SEO · 90 из GEO</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section>
+<h2>Адресные рассылки</h2>
+<div class="card"><h3>Цели за три месяца</h3><div class="flow"><div><strong>≈ 2 500 строк</strong>Исходная база компаний</div><div><strong>50%</strong>Плановый охват исходной базы первыми письмами</div><div><strong>1 250</strong>Доставленные первые письма</div><div><strong>53</strong>Квалифицированные лиды (= ответы)</div><div><strong>16</strong>Получено ТЗ на просчёт</div><div><strong>4</strong>Заключённые договоры</div></div></div>
+<div class="card"><h3>Бюджет за три месяца</h3><div class="amount">До 4 540 ₽</div>
+<div class="table budget"><table><thead><tr><th>Расход</th><th>Сумма</th><th>Когда платим</th></tr></thead><tbody>
+<tr><td>Сбор и обогащение базы</td><td>До 1 500 ₽ за три месяца</td><td>Основную работу делаем бесплатными инструментами. Резерв используем при необходимости платного обогащения</td></tr>
+<tr><td>Сервис рассылок</td><td>1 520 ₽ в месяц</td><td>При переходе на платный тариф. Декабрь — 0 ₽. В январе и феврале решение принимаем отдельно на каждый месяц</td></tr>
+<tr><td>Максимум за три месяца</td><td>4 540 ₽</td><td>Если используем весь резерв на базу и оплатим тариф в январе и феврале</td></tr>
+</tbody></table></div></div>
+<h3>Работы</h3>
+<div class="card"><strong>Исходная база</strong> · около 2 500 строк с компаниями</div>
+<dl class="work">
+<div><dt><strong>Обогатить базу</strong></dt><dd>Настроить и запустить автоматическое обогащение через API. Найти рабочие контакты и роли людей, отвечающих за проектирование и закупку. Убрать дубли, проверить адреса и разделить базу на студии и генподрядчиков</dd></div>
+<div><dt><strong>Подключить сервис рассылок</strong></dt><dd>Подключить выбранную корпоративную почту. На тестовом письме проверить доставку, получение ответов и проверку отправителя (SPF, DKIM, DMARC). Проверить обработку возвратов и отписку</dd></div>
+<div><dt><strong>Подготовить цепочки писем</strong></dt><dd>Для студий предложить проработку изделия, для генподрядчиков — расчёт по ТЗ или ведомости. Написать первое и повторные письма, подобрать кейсы, сверстать и проверить дизайн на телефоне и компьютере</dd></div>
+<div><dt><strong>Запустить отправку небольшими партиями</strong></dt><dd>Постепенно наращивать объём отправки с выбранного корпоративного адреса, следить за возвратами и жалобами. Исключать недействительные адреса и отписавшихся, прекращать цепочку после ответа</dd></div>
+<div><dt><strong>Улучшать письма по результатам</strong></dt><dd>Сравнивать темы, тексты и интервалы между письмами. Отслеживать доставляемость и открываемость, а решение о следующей итерации принимать по содержательным ответам и квалифицированным лидам</dd></div>
+<div><dt><strong>Фиксировать интерес и оценивать рассылки</strong></dt><dd><ul><li>В CRM фиксировать заинтересованные ответы, запросы на сотрудничество и следующий шаг</li><li>В отчёте по сегментам и письмам показывать доставку и возвраты, открытия, клики по кнопкам и ссылкам, ответы, отписки, жалобы и квалифицированные лиды</li></ul></dd></div>
+</dl>
+<div class="materials"><h3>Материалы</h3><ul style="list-style:none;padding:0"><li><label><input type="checkbox" disabled checked> База компаний и объектов</label></li><li><label><input type="checkbox" disabled > Шаблоны писем</label></li><li><label><input type="checkbox" disabled checked> Подборка кейсов и каталог изделий</label></li><li><label><input type="checkbox" disabled > CRM-система</label></li></ul></div>
+</section>
+<section>
+<h2>Яндекс Поиск</h2>
+<div class="card"><h3>Цели и бюджет за три месяца</h3><div class="table"><table class="search-funnel"><thead><tr><th scope="col">Этап</th><th scope="col">План</th><th scope="col">Стоимость за единицу<br>Только рекламный бюджет</th><th scope="col">Стоимость за единицу<br>Рекламный бюджет плюс работы</th></tr></thead><tbody><tr><td>Первичные лиды</td><td class="goal">107</td><td class="unit-cost">5 046,73 ₽</td><td class="unit-cost">5 887,85 ₽</td></tr><tr><td>Квалифицированные лиды</td><td class="goal">64</td><td class="unit-cost">8 437,50 ₽</td><td class="unit-cost">9 843,75 ₽</td></tr><tr><td>Получено ТЗ на просчёт</td><td class="goal">32</td><td class="unit-cost">16 875,00 ₽</td><td class="unit-cost">19 687,50 ₽</td></tr><tr><td>Заключённые договоры</td><td class="goal">8</td><td class="unit-cost">67 500,00 ₽</td><td class="unit-cost">78 750,00 ₽</td></tr><tr class="budget-row"><td>Рекламный бюджет в месяц</td><td colspan="3" class="unit-cost">180 000 ₽</td></tr><tr class="budget-row"><td>Подрядчик по настройке рекламы в месяц</td><td colspan="3" class="unit-cost">30 000 ₽</td></tr><tr class="budget-row"><td>Всего в месяц</td><td colspan="3" class="unit-cost">210 000 ₽</td></tr></tbody></table></div><div class="amount">630 000 ₽</div></div>
+<h3>Работы</h3>
+<ul>
+<li><strong>Первоначальная настройка кампаний по группам изделий</strong> — подобрать коммерческие запросы, подготовить объявления и связать каждую группу с подходящей страницей сайта</li>
+<li><strong>Постоянная оптимизация рекламных кампаний</strong> — проверять поисковые фразы, исключать нецелевые запросы и корректировать ставки и объявления по качеству лидов и полученным ТЗ</li>
+<li><strong>Доработка сайта для повышения конверсии</strong> — улучшать страницы изделий, добавлять релевантные кейсы и упрощать отправку ТЗ. Оценивать изменения по доле посетителей, которые оставляют заявку</li>
+</ul>
+<div class="card" style="margin-top:16px">
+<h3>Примеры запросов для запуска</h3>
+<div class="table"><table><thead><tr><th scope="col">Группа</th><th scope="col">Примеры запросов</th></tr></thead><tbody>
+<tr><td>Павильоны</td><td>павильон на заказ<br>изготовление павильонов</td></tr>
+<tr><td>Перголы</td><td>пергола на заказ<br>пергола изготовление на заказ</td></tr>
+<tr><td>МАФ</td><td>изготовление МАФ<br>МАФ на заказ</td></tr>
+<tr><td>Уличная мебель</td><td>производитель уличной мебели<br>уличная мебель на заказ</td></tr>
+<tr><td>Скамейки</td><td>парковые скамейки купить<br>скамейки оптом</td></tr>
+</tbody></table></div>
+</div>
+<div class="materials"><h3>Материалы</h3><ul style="list-style:none;padding:0"><li><label><input type="checkbox" disabled> Сайт</label></li><li><label><input type="checkbox" disabled> CRM</label></li><li><label><input type="checkbox" disabled> Тексты объявлений</label></li></ul></div>
+</section>
+<section>
+<h2>Брендовая реклама</h2>
+<div class="scenario-options" role="group" aria-label="Сценарий брендового охвата">
+  <button class="scenario-toggle" type="button" aria-pressed="true">Минимальный</button>
+  <button class="scenario-toggle" type="button" aria-pressed="false" data-maximum>Максимальный</button>
+</div>
+<div class="table brand"><table><thead><tr><th>Площадка</th><th>Период</th><th>Плановый результат</th><th>CPM</th><th>Бюджет в месяц</th><th>Бюджет за период</th></tr></thead><tbody>
+<tr><td>Telegram Ads</td><td>Декабрь</td><td class="result"><strong>≈453 000</strong><small>показов</small></td><td>132 ₽</td><td>60 000 ₽</td><td>60 000 ₽</td></tr>
+<tr><td>VK Реклама</td><td><span data-max="Декабрь — февраль">Январь и февраль</span></td><td class="result"><strong>≈816 000</strong><small>показов в месяц</small></td><td>123 ₽</td><td>100 000 ₽</td><td><span data-max="300 000 ₽">200 000 ₽</span></td></tr>
+<tr><td>РСЯ</td><td><span data-max="Декабрь — февраль">Январь и февраль</span></td><td class="result"><strong>≈787 000</strong><small>показов в месяц</small></td><td>114 ₽</td><td>90 000 ₽</td><td><span data-max="270 000 ₽">180 000 ₽</span></td></tr>
+</tbody></table></div><div class="totals"><div class="metric"><strong><span data-max="630 000 ₽">440 000 ₽</span></strong>Бюджет за три месяца</div><div class="metric"><strong><span data-max="≈5,26 млн">≈3,66 млн</span></strong>Показов за три месяца</div></div>
+<div class="card"><h3>Расчётная аудитория по площадкам</h3><div class="table"><table><thead><tr><th>Площадка</th><th>Оценка аудитории</th><th>Средняя частота в месяц</th></tr></thead><tbody><tr><td>Telegram Ads</td><td>≈4 530<small style="display:block;margin-top:4px;color:var(--muted);font-size:13px;font-weight:400">Ориентир — подписчики профильных архитектурных и строительных каналов</small></td><td>100</td></tr><tr><td>VK Реклама</td><td>≈8 160<small style="display:block;margin-top:4px;color:var(--muted);font-size:13px;font-weight:400">Ориентир — подписчики профильных архитектурных и строительных сообществ</small></td><td>100</td></tr><tr><td>РСЯ</td><td>≈6 700–8 900<small style="display:block;margin-top:4px;color:var(--muted);font-size:13px;font-weight:400">Ориентир — число архитектурных компаний Москвы и Московской области</small></td><td>≈100</td></tr></tbody></table></div></div>
+<h3>Работы</h3>
+<ul><li><strong>Telegram Ads · декабрь</strong><br>Настроить, запустить и завершить показы в декабре 2026 года. По разъяснению ФАС переходный период, в течение которого ведомство не применяет меры ответственности за рекламу в Telegram, заканчивается в конце 2026 года. <a href="https://www.consultant.ru/document/cons_doc_LAW_529901/">Разъяснение ФАС</a></li><li><strong><span data-max="VK Реклама и РСЯ · декабрь — февраль">VK Реклама и РСЯ · январь и февраль</span></strong><br><span data-max="Запустить охватные кампании в декабре параллельно с Telegram Ads">Запустить охватные кампании после завершения показов в Telegram</span></li></ul>
+<div class="materials"><h3>Материалы</h3><ul style="list-style:none;padding:0"><li><label><input type="checkbox" disabled> Сайт</label></li><li><label><input type="checkbox" disabled> Рекламные баннеры</label></li><li><label><input type="checkbox" disabled> Телеграм-канал</label></li></ul></div>
+</section>
+<section>
+<h2>SEO, GEO и Яндекс Карты</h2>
+<div class="card"><h3>Цели за три месяца</h3>
+<div class="table"><table><thead><tr><th scope="col">Этап</th><th scope="col">SEO</th><th scope="col">GEO</th></tr></thead><tbody>
+<tr><th scope="row">Клики на сайт</th><td>180</td><td>90</td></tr>
+<tr><th scope="row">Первичные лиды</th><td>9</td><td>5</td></tr>
+<tr><th scope="row">Квалифицированные лиды</th><td>5</td><td>2</td></tr>
+<tr><th scope="row">Получено ТЗ на просчёт</th><td>2</td><td>1</td></tr>
+<tr><th scope="row">Заключённые договоры</th><td>0</td><td>0</td></tr>
+</tbody></table></div>
+<p class="note-list">Сейчас на сайт приходится около 30 заходов из SEO в месяц</p></div>
+<h3>Работы</h3>
+<ul><li><strong>SEO</strong> — выяснить, по каким запросам конкуренты видны в поиске, и выбрать те, по которым MPG может с ними конкурировать. Использовать ключевые слова в заголовках и текстах существующих страниц. Под нужные запросы создавать новые страницы изделий, статьи или расширенные кейсы. Проверять, вошли ли страницы в индекс, по каким запросам показываются и сколько кликов приносят</li><li><strong>GEO</strong> — добиваться, чтобы поисковые ИИ рекомендовали MPG при подборе производителей. Для этого ясно описать на сайте, что производит MPG, где работает и какие проекты реализовала. На 20 запросах о поиске поставщика проверять, называет ли ИИ MPG среди подходящих компаний и ссылается ли на наш сайт</li><li>Один раз заполнить бесплатную карточку MPG в Яндекс Бизнесе. Добавить контакты, описание производства и фото реализованных объектов, чтобы карточка представляла компанию при поиске по названию</li></ul>
+<div class="materials"><h3>Материалы</h3><ul style="list-style:none;padding:0"><li><label><input type="checkbox" disabled> Сайт</label></li><li><label><input type="checkbox" disabled> Описанные кейсы</label></li></ul></div>
+</section>
+</main>
+</html>
+
+<script>
+const buttons = document.querySelectorAll('.scenario-toggle');
+const values = Array.from(document.querySelectorAll('[data-max]'), element => ({
+  element, base: element.textContent, max: element.dataset.max
+}));
+for (const button of buttons) {
+  button.addEventListener('click', () => {
+    const maximum = button.hasAttribute('data-maximum');
+    for (const option of buttons) {
+      option.setAttribute('aria-pressed', String(option === button));
+    }
+    for (const {element, base, max} of values) {
+      element.textContent = maximum ? max : base;
+    }
+  });
+}
+</script>
